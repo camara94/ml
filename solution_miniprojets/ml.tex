@@ -1,0 +1,1241 @@
+
+% Default to the notebook output style
+
+    
+
+
+% Inherit from the specified cell style.
+
+
+
+
+    
+\documentclass[11pt]{article}
+
+    
+    
+    \usepackage[T1]{fontenc}
+    % Nicer default font (+ math font) than Computer Modern for most use cases
+    \usepackage{mathpazo}
+
+    % Basic figure setup, for now with no caption control since it's done
+    % automatically by Pandoc (which extracts ![](path) syntax from Markdown).
+    \usepackage{graphicx}
+    % We will generate all images so they have a width \maxwidth. This means
+    % that they will get their normal width if they fit onto the page, but
+    % are scaled down if they would overflow the margins.
+    \makeatletter
+    \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth
+    \else\Gin@nat@width\fi}
+    \makeatother
+    \let\Oldincludegraphics\includegraphics
+    % Set max figure width to be 80% of text width, for now hardcoded.
+    \renewcommand{\includegraphics}[1]{\Oldincludegraphics[width=.8\maxwidth]{#1}}
+    % Ensure that by default, figures have no caption (until we provide a
+    % proper Figure object with a Caption API and a way to capture that
+    % in the conversion process - todo).
+    \usepackage{caption}
+    \DeclareCaptionLabelFormat{nolabel}{}
+    \captionsetup{labelformat=nolabel}
+
+    \usepackage{adjustbox} % Used to constrain images to a maximum size 
+    \usepackage{xcolor} % Allow colors to be defined
+    \usepackage{enumerate} % Needed for markdown enumerations to work
+    \usepackage{geometry} % Used to adjust the document margins
+    \usepackage{amsmath} % Equations
+    \usepackage{amssymb} % Equations
+    \usepackage{textcomp} % defines textquotesingle
+    % Hack from http://tex.stackexchange.com/a/47451/13684:
+    \AtBeginDocument{%
+        \def\PYZsq{\textquotesingle}% Upright quotes in Pygmentized code
+    }
+    \usepackage{upquote} % Upright quotes for verbatim code
+    \usepackage{eurosym} % defines \euro
+    \usepackage[mathletters]{ucs} % Extended unicode (utf-8) support
+    \usepackage[utf8x]{inputenc} % Allow utf-8 characters in the tex document
+    \usepackage{fancyvrb} % verbatim replacement that allows latex
+    \usepackage{grffile} % extends the file name processing of package graphics 
+                         % to support a larger range 
+    % The hyperref package gives us a pdf with properly built
+    % internal navigation ('pdf bookmarks' for the table of contents,
+    % internal cross-reference links, web links for URLs, etc.)
+    \usepackage{hyperref}
+    \usepackage{longtable} % longtable support required by pandoc >1.10
+    \usepackage{booktabs}  % table support for pandoc > 1.12.2
+    \usepackage[inline]{enumitem} % IRkernel/repr support (it uses the enumerate* environment)
+    \usepackage[normalem]{ulem} % ulem is needed to support strikethroughs (\sout)
+                                % normalem makes italics be italics, not underlines
+    
+
+    
+    
+    % Colors for the hyperref package
+    \definecolor{urlcolor}{rgb}{0,.145,.698}
+    \definecolor{linkcolor}{rgb}{.71,0.21,0.01}
+    \definecolor{citecolor}{rgb}{.12,.54,.11}
+
+    % ANSI colors
+    \definecolor{ansi-black}{HTML}{3E424D}
+    \definecolor{ansi-black-intense}{HTML}{282C36}
+    \definecolor{ansi-red}{HTML}{E75C58}
+    \definecolor{ansi-red-intense}{HTML}{B22B31}
+    \definecolor{ansi-green}{HTML}{00A250}
+    \definecolor{ansi-green-intense}{HTML}{007427}
+    \definecolor{ansi-yellow}{HTML}{DDB62B}
+    \definecolor{ansi-yellow-intense}{HTML}{B27D12}
+    \definecolor{ansi-blue}{HTML}{208FFB}
+    \definecolor{ansi-blue-intense}{HTML}{0065CA}
+    \definecolor{ansi-magenta}{HTML}{D160C4}
+    \definecolor{ansi-magenta-intense}{HTML}{A03196}
+    \definecolor{ansi-cyan}{HTML}{60C6C8}
+    \definecolor{ansi-cyan-intense}{HTML}{258F8F}
+    \definecolor{ansi-white}{HTML}{C5C1B4}
+    \definecolor{ansi-white-intense}{HTML}{A1A6B2}
+
+    % commands and environments needed by pandoc snippets
+    % extracted from the output of `pandoc -s`
+    \providecommand{\tightlist}{%
+      \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+    \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+    % Add ',fontsize=\small' for more characters per line
+    \newenvironment{Shaded}{}{}
+    \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
+    \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+    \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+    \newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+    \newcommand{\RegionMarkerTok}[1]{{#1}}
+    \newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\NormalTok}[1]{{#1}}
+    
+    % Additional commands for more recent versions of Pandoc
+    \newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{{#1}}}
+    \newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{{#1}}}
+    \newcommand{\ImportTok}[1]{{#1}}
+    \newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{{#1}}}}
+    \newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{{#1}}}
+    \newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{{#1}}}
+    \newcommand{\BuiltInTok}[1]{{#1}}
+    \newcommand{\ExtensionTok}[1]{{#1}}
+    \newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{{#1}}}
+    \newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{{#1}}}
+    \newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    
+    
+    % Define a nice break command that doesn't care if a line doesn't already
+    % exist.
+    \def\br{\hspace*{\fill} \\* }
+    % Math Jax compatability definitions
+    \def\gt{>}
+    \def\lt{<}
+    % Document parameters
+    \title{ml}
+    
+    
+    
+
+    % Pygments definitions
+    
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\expandafter\def\csname PY@tok@w\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\expandafter\def\csname PY@tok@c\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.74,0.48,0.00}{##1}}}
+\expandafter\def\csname PY@tok@k\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+\expandafter\def\csname PY@tok@o\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ow\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@ne\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.82,0.25,0.23}{##1}}}
+\expandafter\def\csname PY@tok@nv\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@no\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ni\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.60,0.60,0.60}{##1}}}
+\expandafter\def\csname PY@tok@na\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.49,0.56,0.16}{##1}}}
+\expandafter\def\csname PY@tok@nt\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@s\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sd\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@si\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@se\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@ss\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@m\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@gh\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gu\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gr\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ge\endcsname{\let\PY@it=\textit}
+\expandafter\def\csname PY@tok@gs\endcsname{\let\PY@bf=\textbf}
+\expandafter\def\csname PY@tok@gp\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@go\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+\expandafter\def\csname PY@tok@gt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\expandafter\def\csname PY@tok@err\endcsname{\def\PY@bc##1{\setlength{\fboxsep}{0pt}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}
+\expandafter\def\csname PY@tok@kc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kd\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kr\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@bp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@fm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@vc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vg\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sa\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@dl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@s2\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@s1\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@mb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@il\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mo\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ch\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cm\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cpf\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@c1\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cs\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZam{\char`\&}
+\def\PYZlt{\char`\<}
+\def\PYZgt{\char`\>}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZhy{\char`\-}
+\def\PYZsq{\char`\'}
+\def\PYZdq{\char`\"}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+
+
+    % Exact colors from NB
+    \definecolor{incolor}{rgb}{0.0, 0.0, 0.5}
+    \definecolor{outcolor}{rgb}{0.545, 0.0, 0.0}
+
+
+
+    
+    % Prevent overflowing lines due to hard-to-break entities
+    \sloppy 
+    % Setup hyperref package
+    \hypersetup{
+      breaklinks=true,  % so long urls are correctly broken across lines
+      colorlinks=true,
+      urlcolor=urlcolor,
+      linkcolor=linkcolor,
+      citecolor=citecolor,
+      }
+    % Slightly bigger margins than the latex defaults
+    
+    \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+    
+    
+
+    \begin{document}
+    
+    
+    \maketitle
+    
+    
+
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}2}]:} \PY{o}{\PYZpc{}}\PY{k}{logstop}
+        \PY{o}{\PYZpc{}}\PY{k}{logstart} \PYZhy{}ortq \PYZti{}/.logs/ml.py append
+        \PY{o}{\PYZpc{}}\PY{k}{matplotlib} inline
+        \PY{k+kn}{import} \PY{n+nn}{matplotlib}
+        \PY{k+kn}{import} \PY{n+nn}{seaborn} \PY{k}{as} \PY{n+nn}{sns}
+        \PY{n}{sns}\PY{o}{.}\PY{n}{set}\PY{p}{(}\PY{p}{)}
+        \PY{n}{matplotlib}\PY{o}{.}\PY{n}{rcParams}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{figure.dpi}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{l+m+mi}{144}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}4}]:} \PY{k+kn}{from} \PY{n+nn}{static\PYZus{}grader} \PY{k}{import} \PY{n}{grader}
+\end{Verbatim}
+
+
+    \hypertarget{ml-miniproject}{%
+\section{ML Miniproject}\label{ml-miniproject}}
+
+\hypertarget{introduction}{%
+\subsection{Introduction}\label{introduction}}
+
+The objective of this miniproject is to exercise your ability to create
+effective machine learning models for making predictions. We will be
+working with nursing home inspection data from the United States,
+predicting which providers may be fined and for how much.
+
+\hypertarget{scoring}{%
+\subsection{Scoring}\label{scoring}}
+
+In this miniproject you will often submit your model's \texttt{predict}
+or \texttt{predict\_proba} method to the grader. The grader will assess
+the performance of your model using a scoring metric, comparing it
+against the score of a reference model. We will use the
+\href{http://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html}{average
+precision score}. If your model performs better than the reference
+solution, then you can score higher than 1.0.
+
+\textbf{Note:} If you use an estimator that relies on random draws (like
+a \texttt{RandomForestClassifier}) you should set the
+\texttt{random\_state=} to an integer so that your results are
+reproducible.
+
+\hypertarget{downloading-the-data}{%
+\subsection{Downloading the data}\label{downloading-the-data}}
+
+We can download the data set from Amazon S3:
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}5}]:} \PYZpc{}\PYZpc{}bash
+        mkdir data
+        wget http://dataincubator\PYZhy{}wqu.s3.amazonaws.com/mldata/providers\PYZhy{}train.csv \PYZhy{}nc \PYZhy{}P ./ml\PYZhy{}data
+        wget http://dataincubator\PYZhy{}wqu.s3.amazonaws.com/mldata/providers\PYZhy{}metadata.csv \PYZhy{}nc \PYZhy{}P ./ml\PYZhy{}data
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+mkdir: cannot create directory ‘data’: File exists
+File ‘./ml-data/providers-train.csv’ already there; not retrieving.
+
+File ‘./ml-data/providers-metadata.csv’ already there; not retrieving.
+
+
+    \end{Verbatim}
+
+    We'll load the data into a Pandas DataFrame. Several columns will become
+target labels in future questions. Let's pop those columns out from the
+data, and drop related columns that are neither targets nor reasonable
+features (i.e.~we don't wouldn't know how many times a facility denied
+payment before knowing whether it was fined).
+
+The data has many columns. We have also provided a data dictionary.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}6}]:} \PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k}{as} \PY{n+nn}{np}
+        \PY{k+kn}{import} \PY{n+nn}{pandas} \PY{k}{as} \PY{n+nn}{pd}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}7}]:} \PY{n}{metadata} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{read\PYZus{}csv}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{./ml\PYZhy{}data/providers\PYZhy{}metadata.csv}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+        \PY{n}{metadata}\PY{o}{.}\PY{n}{head}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}7}]:}    Variable                    Label              Description  \textbackslash{}
+        0   PROVNUM  Federal Provider Number  Federal Provider Number   
+        1  PROVNAME            Provider Name            Provider Name   
+        2   ADDRESS         Provider Address         Provider Address   
+        3      CITY            Provider City            Provider City   
+        4     STATE           Provider State           Provider State   
+        
+                                    Format  
+        0        6 alphanumeric characters  
+        1                             text  
+        2                             text  
+        3                             text  
+        4  2-character postal abbreviation  
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}8}]:} \PY{n}{data} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{read\PYZus{}csv}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{./ml\PYZhy{}data/providers\PYZhy{}train.csv}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{encoding}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{latin1}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+        
+        \PY{n}{fine\PYZus{}counts} \PY{o}{=} \PY{n}{data}\PY{o}{.}\PY{n}{pop}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{FINE\PYZus{}CNT}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+        \PY{n}{fine\PYZus{}totals} \PY{o}{=} \PY{n}{data}\PY{o}{.}\PY{n}{pop}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{FINE\PYZus{}TOT}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+        \PY{n}{cycle\PYZus{}2\PYZus{}score} \PY{o}{=} \PY{n}{data}\PY{o}{.}\PY{n}{pop}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{CYCLE\PYZus{}2\PYZus{}TOTAL\PYZus{}SCORE}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+
+    \hypertarget{question-1-state_model}{%
+\subsection{Question 1: state\_model}\label{question-1-state_model}}
+
+A federal agency, Centers for Medicare and Medicaid Services (CMS),
+imposes regulations on nursing homes. However, nursing homes are
+inspected by state agencies for compliance with regulations, and fines
+for violations can vary widely between states.
+
+Let's develop a very simple initial model to predict the amount of fines
+a nursing home might expect to pay based on its location. Fill in the
+class definition of the custom estimator, \texttt{StateMeanEstimator},
+below.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}9}]:} \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{base} \PY{k}{import} \PY{n}{BaseEstimator}\PY{p}{,} \PY{n}{RegressorMixin}\PY{p}{,} \PY{n}{TransformerMixin}
+        
+        \PY{k}{class} \PY{n+nc}{GroupMeanEstimator}\PY{p}{(}\PY{n}{BaseEstimator}\PY{p}{,} \PY{n}{RegressorMixin}\PY{p}{)}\PY{p}{:}
+            \PY{k}{def} \PY{n+nf}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{gb\PYZus{}col}\PY{p}{)}\PY{p}{:}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{gb\PYZus{}col} \PY{o}{=} \PY{n}{gb\PYZus{}col}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{group\PYZus{}averages} \PY{o}{=} \PY{p}{\PYZob{}}\PY{p}{\PYZcb{}}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{global\PYZus{}avg} \PY{o}{=} \PY{l+m+mi}{0}
+        
+            \PY{k}{def} \PY{n+nf}{fit}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{X}\PY{p}{,} \PY{n}{y}\PY{p}{)}\PY{p}{:}
+                \PY{c+c1}{\PYZsh{} Use self.group\PYZus{}averages to store the average penalty by group}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{group\PYZus{}averages} \PY{o}{=} \PY{p}{(}\PY{n}{y}\PY{o}{.}\PY{n}{groupby}\PY{p}{(}\PY{n}{X}\PY{p}{[}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{gb\PYZus{}col}\PY{p}{]}\PY{p}{)}
+                                               \PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{to\PYZus{}dict}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{global\PYZus{}avg} \PY{o}{=} \PY{n}{y}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{p}{)}
+                \PY{k}{return} \PY{n+nb+bp}{self}
+        
+            \PY{k}{def} \PY{n+nf}{predict}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{X}\PY{p}{)}\PY{p}{:}
+                \PY{c+c1}{\PYZsh{} Return a list of predicted penalties based on group of samples in X}
+                \PY{k}{if} \PY{o+ow}{not} \PY{n+nb}{isinstance}\PY{p}{(}\PY{n}{X}\PY{p}{,} \PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{)}\PY{p}{:}
+                    \PY{n}{X} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{(}\PY{n}{X}\PY{p}{)}
+                \PY{k}{return} \PY{p}{[}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{group\PYZus{}averages}\PY{o}{.}\PY{n}{get}\PY{p}{(}\PY{n}{row}\PY{p}{,} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{global\PYZus{}avg}\PY{p}{)} \PY{k}{for} \PY{n}{row} \PY{o+ow}{in} \PY{n}{X}\PY{p}{[}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{gb\PYZus{}col}\PY{p}{]}\PY{p}{]}
+\end{Verbatim}
+
+
+    After filling in class definition, we can create an instance of the
+estimator and fit it to the data.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}10}]:} \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{pipeline} \PY{k}{import} \PY{n}{Pipeline}
+         
+         \PY{n}{state\PYZus{}model} \PY{o}{=} \PY{n}{Pipeline}\PY{p}{(}\PY{p}{[}
+             \PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{sme}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{GroupMeanEstimator}\PY{p}{(}\PY{n}{gb\PYZus{}col}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{STATE}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{)}
+             \PY{p}{]}\PY{p}{)}
+         \PY{n}{state\PYZus{}model}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{data}\PY{p}{,} \PY{n}{fine\PYZus{}totals}\PY{p}{)}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}10}]:} Pipeline(memory=None, steps=[('sme', GroupMeanEstimator(gb\_col='STATE'))],
+                  verbose=False)
+\end{Verbatim}
+            
+    Next we should test that our predict method works.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}11}]:} \PY{n}{state\PYZus{}model}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{data}\PY{o}{.}\PY{n}{sample}\PY{p}{(}\PY{l+m+mi}{5}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}11}]:} [3490.756838905775,
+          2213.51526032316,
+          29459.975,
+          6634.197226502311,
+          8214.822977725675]
+\end{Verbatim}
+            
+    However, what if we have data from a nursing home in a state (or
+territory) of the US which is not in the training data?
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}12}]:} \PY{n}{state\PYZus{}model}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{(}\PY{p}{[}\PY{p}{\PYZob{}}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{STATE}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{AS}\PY{l+s+s1}{\PYZsq{}}\PY{p}{\PYZcb{}}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}12}]:} [14969.857687877915]
+\end{Verbatim}
+            
+    Make sure your model can handle this possibility before submitting your
+model's predict method to the grader.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}13}]:} \PY{n}{grader}\PY{o}{.}\PY{n}{score}\PY{o}{.}\PY{n}{ml\PYZus{}\PYZus{}state\PYZus{}model}\PY{p}{(}\PY{n}{state\PYZus{}model}\PY{o}{.}\PY{n}{predict}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+==================
+Your score:  0.9999999999999999
+==================
+
+    \end{Verbatim}
+
+    \hypertarget{question-2-simple_features_model}{%
+\subsection{Question 2:
+simple\_features\_model}\label{question-2-simple_features_model}}
+
+Nursing homes vary greatly in their business characteristics. Some are
+owned by the government or non-profits while others are run for profit.
+Some house a few dozen residents while others house hundreds. Some are
+located within hospitals and may work with more vulnerable populations.
+We will try to predict which facilities are fined based on their
+business characteristics.
+
+We'll begin with columns in our DataFrame containing numeric and boolean
+features. Some of the rows contain null values; estimators cannot handle
+null values so these must be imputed or dropped. We will create a
+\texttt{Pipeline} containing transformers that process these features,
+followed by an estimator.
+
+\textbf{Note:} When the grader checks your answer, it passes a list of
+dictionaries to the \texttt{predict} or \texttt{predict\_proba} method
+of your estimator, not a DataFrame. This means that your model must work
+with both data types. For this reason, we've provided a custom
+\texttt{ColumnSelectTransformer} for you to use instead
+\texttt{scikit-learn}'s own \texttt{ColumnTransformer}.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}14}]:} \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{impute} \PY{k}{import} \PY{n}{SimpleImputer}
+         \PY{n}{simple\PYZus{}cols} \PY{o}{=} \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{BEDCERT}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{RESTOT}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{INHOSP}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{CCRC\PYZus{}FACIL}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{SFF}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{CHOW\PYZus{}LAST\PYZus{}12MOS}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{SPRINKLER\PYZus{}STATUS}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{EXP\PYZus{}TOTAL}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{ADJ\PYZus{}TOTAL}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+         
+         \PY{k}{class} \PY{n+nc}{ColumnSelectTransformer}\PY{p}{(}\PY{n}{BaseEstimator}\PY{p}{,} \PY{n}{TransformerMixin}\PY{p}{)}\PY{p}{:}
+             \PY{k}{def} \PY{n+nf}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{columns}\PY{p}{)}\PY{p}{:}
+                 \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{columns} \PY{o}{=} \PY{n}{columns}
+         
+             \PY{k}{def} \PY{n+nf}{fit}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{X}\PY{p}{,} \PY{n}{y}\PY{o}{=}\PY{k+kc}{None}\PY{p}{)}\PY{p}{:}
+                 \PY{k}{return} \PY{n+nb+bp}{self}
+         
+             \PY{k}{def} \PY{n+nf}{transform}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{X}\PY{p}{)}\PY{p}{:}
+                 \PY{k}{if} \PY{o+ow}{not} \PY{n+nb}{isinstance}\PY{p}{(}\PY{n}{X}\PY{p}{,} \PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{)}\PY{p}{:}
+                     \PY{n}{X} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{(}\PY{n}{X}\PY{p}{)}
+                 \PY{k}{return} \PY{n}{X}\PY{p}{[}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{columns}\PY{p}{]}
+                 
+         \PY{n}{simple\PYZus{}features} \PY{o}{=} \PY{n}{Pipeline}\PY{p}{(}\PY{p}{[}
+             \PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{cst}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{ColumnSelectTransformer}\PY{p}{(}\PY{n}{simple\PYZus{}cols}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+             \PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{imputer}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{SimpleImputer}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+         \PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}15}]:} \PY{n+nb}{len}\PY{p}{(}\PY{n}{simple\PYZus{}cols}\PY{p}{)}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}15}]:} 9
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}16}]:} \PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{(}\PY{n}{simple\PYZus{}features}\PY{o}{.}\PY{n}{fit\PYZus{}transform}\PY{p}{(}\PY{n}{data}\PY{p}{)}\PY{p}{)}\PY{o}{.}\PY{n}{info}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 13892 entries, 0 to 13891
+Data columns (total 9 columns):
+0    13892 non-null float64
+1    13892 non-null float64
+2    13892 non-null float64
+3    13892 non-null float64
+4    13892 non-null float64
+5    13892 non-null float64
+6    13892 non-null float64
+7    13892 non-null float64
+8    13892 non-null float64
+dtypes: float64(9)
+memory usage: 976.9 KB
+
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}17}]:} \PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{(}\PY{n}{simple\PYZus{}features}\PY{o}{.}\PY{n}{fit\PYZus{}transform}\PY{p}{(}\PY{n}{data}\PY{p}{)}\PY{p}{,} \PY{n}{columns}\PY{o}{=}\PY{n}{simple\PYZus{}cols}\PY{p}{)}\PY{o}{.}\PY{n}{head}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}17}]:}    BEDCERT      RESTOT  INHOSP  CCRC\_FACIL  SFF  CHOW\_LAST\_12MOS  \textbackslash{}
+         0     85.0   74.200000     1.0         0.0  0.0              0.0   
+         1     50.0   86.760469     1.0         0.0  0.0              0.0   
+         2     92.0   79.800000     0.0         0.0  0.0              0.0   
+         3    103.0   98.100000     0.0         1.0  0.0              0.0   
+         4    149.0  119.700000     0.0         0.0  0.0              0.0   
+         
+            SPRINKLER\_STATUS  EXP\_TOTAL  ADJ\_TOTAL  
+         0               1.0   3.212187   3.859121  
+         1               1.0   3.212187   3.859121  
+         2               1.0   3.080150   3.830260  
+         3               1.0   2.839380   3.957090  
+         4               1.0   3.155540   4.078660  
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}18}]:} \PY{n}{data}\PY{p}{[}\PY{n}{simple\PYZus{}cols}\PY{p}{]}\PY{o}{.}\PY{n}{head}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}18}]:}    BEDCERT  RESTOT  INHOSP  CCRC\_FACIL    SFF  CHOW\_LAST\_12MOS  \textbackslash{}
+         0       85    74.2    True       False  False            False   
+         1       50     NaN    True       False  False            False   
+         2       92    79.8   False       False  False            False   
+         3      103    98.1   False        True  False            False   
+         4      149   119.7   False       False  False            False   
+         
+            SPRINKLER\_STATUS  EXP\_TOTAL  ADJ\_TOTAL  
+         0              True        NaN        NaN  
+         1              True        NaN        NaN  
+         2              True    3.08015    3.83026  
+         3              True    2.83938    3.95709  
+         4              True    3.15554    4.07866  
+\end{Verbatim}
+            
+    \textbf{Note:} The assertion below assumes the output of
+\texttt{noncategorical\_features.fit\_transform} is a \texttt{ndarray},
+not a \texttt{DataFrame}.)
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}19}]:} \PY{k}{assert} \PY{n}{data}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{RESTOT}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{isnull}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{p}{)} \PY{o}{\PYZgt{}} \PY{l+m+mi}{0}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}20}]:} \PY{k}{assert} \PY{o+ow}{not} \PY{n}{np}\PY{o}{.}\PY{n}{isnan}\PY{p}{(}\PY{n}{simple\PYZus{}features}\PY{o}{.}\PY{n}{fit\PYZus{}transform}\PY{p}{(}\PY{n}{data}\PY{p}{)}\PY{p}{)}\PY{o}{.}\PY{n}{any}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+    Now combine the \texttt{simple\_features} pipeline with an estimator in
+a new pipeline. Fit \texttt{simple\_features\_model} to the data and
+submit \texttt{simple\_features\_model.predict\_proba} to the grader.
+You may wish to use cross-validation to tune the hyperparameters of your
+model.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}21}]:} \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{linear\PYZus{}model} \PY{k}{import} \PY{n}{LogisticRegression}
+         \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{ensemble} \PY{k}{import} \PY{n}{RandomForestClassifier}
+         \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{svm} \PY{k}{import} \PY{n}{SVC}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}22}]:} \PY{n}{simple\PYZus{}features\PYZus{}model} \PY{o}{=} \PY{n}{Pipeline}\PY{p}{(}\PY{p}{[}
+             \PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{simple}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{simple\PYZus{}features}\PY{p}{)}\PY{p}{,}
+             \PY{c+c1}{\PYZsh{} add your estimator here}
+             \PY{c+c1}{\PYZsh{}(\PYZsq{}predictor\PYZsq{}, LogisticRegression(solver=\PYZsq{}lbfgs\PYZsq{}))}
+             \PY{c+c1}{\PYZsh{}(\PYZsq{}predictor\PYZsq{}, RandomForestClassifier()) score:  0.597184769712005}
+             \PY{c+c1}{\PYZsh{}(\PYZsq{}predictor\PYZsq{}, SVC(probability=True)) score:  0.4867148455758089}
+             \PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{predictor}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{RandomForestClassifier}\PY{p}{(}\PY{n}{n\PYZus{}estimators}\PY{o}{=}\PY{l+m+mi}{100}\PY{p}{,} \PY{n}{max\PYZus{}depth}\PY{o}{=}\PY{l+m+mi}{10}\PY{p}{)}\PY{p}{)}
+         \PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}23}]:} \PY{n}{simple\PYZus{}features\PYZus{}model}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{data}\PY{p}{,} \PY{n}{fine\PYZus{}counts} \PY{o}{\PYZgt{}} \PY{l+m+mi}{0}\PY{p}{)}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}23}]:} Pipeline(memory=None,
+                  steps=[('simple',
+                          Pipeline(memory=None,
+                                   steps=[('cst',
+                                           ColumnSelectTransformer(columns=['BEDCERT',
+                                                                            'RESTOT',
+                                                                            'INHOSP',
+                                                                            'CCRC\_FACIL',
+                                                                            'SFF',
+                                                                            'CHOW\_LAST\_12MOS',
+                                                                            'SPRINKLER\_STATUS',
+                                                                            'EXP\_TOTAL',
+                                                                            'ADJ\_TOTAL'])),
+                                          ('imputer',
+                                           SimpleImputer(add\_indicator=False, copy=True,
+                                                         fill\_value=None,
+                                                         missing\_values=nan,
+                                                         strategy='mean', verbose=0))],
+                                   verbose=False){\ldots}
+                          RandomForestClassifier(bootstrap=True, class\_weight=None,
+                                                 criterion='gini', max\_depth=10,
+                                                 max\_features='auto',
+                                                 max\_leaf\_nodes=None,
+                                                 min\_impurity\_decrease=0.0,
+                                                 min\_impurity\_split=None,
+                                                 min\_samples\_leaf=1, min\_samples\_split=2,
+                                                 min\_weight\_fraction\_leaf=0.0,
+                                                 n\_estimators=100, n\_jobs=None,
+                                                 oob\_score=False, random\_state=None,
+                                                 verbose=0, warm\_start=False))],
+                  verbose=False)
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}24}]:} \PY{k}{def} \PY{n+nf}{positive\PYZus{}probability}\PY{p}{(}\PY{n}{model}\PY{p}{)}\PY{p}{:}
+             \PY{k}{def} \PY{n+nf}{predict\PYZus{}proba}\PY{p}{(}\PY{n}{X}\PY{p}{)}\PY{p}{:}
+                 \PY{k}{return} \PY{n}{model}\PY{o}{.}\PY{n}{predict\PYZus{}proba}\PY{p}{(}\PY{n}{X}\PY{p}{)}\PY{p}{[}\PY{p}{:}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{]}
+             \PY{k}{return} \PY{n}{predict\PYZus{}proba}
+         
+         \PY{n}{grader}\PY{o}{.}\PY{n}{score}\PY{o}{.}\PY{n}{ml\PYZus{}\PYZus{}simple\PYZus{}features}\PY{p}{(}\PY{n}{positive\PYZus{}probability}\PY{p}{(}\PY{n}{simple\PYZus{}features\PYZus{}model}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+==================
+Your score:  1.0462283824111012
+==================
+
+    \end{Verbatim}
+
+    \hypertarget{question-3-categorical_features}{%
+\subsection{Question 3:
+categorical\_features}\label{question-3-categorical_features}}
+
+    The \texttt{\textquotesingle{}OWNERSHIP\textquotesingle{}} and
+\texttt{\textquotesingle{}CERTIFICATION\textquotesingle{}} columns
+contain categorical data. We will have to encode the categorical data
+into numerical features before we pass them to an estimator. Construct
+one or more pipelines for this purpose. Transformers such as
+\href{https://scikit-learn.org/0.19/modules/generated/sklearn.preprocessing.LabelEncoder.html\#sklearn.preprocessing.LabelEncoder}{LabelEncoder}
+and
+\href{https://scikit-learn.org/0.19/modules/generated/sklearn.preprocessing.OneHotEncoder.html\#sklearn.preprocessing.OneHotEncoder}{OneHotEncoder}
+may be useful, but you may also want to define your own transformers.
+
+If you used more than one \texttt{Pipeline}, combine them with a
+\texttt{FeatureUnion}. As in Question 2, we will combine this with an
+estimator, fit it, and submit the \texttt{predict\_proba} method to the
+grader.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}25}]:} \PY{c+c1}{\PYZsh{} data.OWNERSHIP.value\PYZus{}counts()}
+         \PY{n}{data}\PY{o}{.}\PY{n}{CERTIFICATION}\PY{o}{.}\PY{n}{value\PYZus{}counts}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}25}]:} Medicare and Medicaid    12942
+         Medicare                   634
+         Medicaid                   316
+         Name: CERTIFICATION, dtype: int64
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}26}]:} \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{pipeline} \PY{k}{import} \PY{n}{FeatureUnion}
+         \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{preprocessing} \PY{k}{import} \PY{n}{OneHotEncoder}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}27}]:} \PY{n}{owner\PYZus{}onehot} \PY{o}{=} \PY{n}{Pipeline}\PY{p}{(}\PY{p}{[}
+             \PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{cst}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{ColumnSelectTransformer}\PY{p}{(}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{OWNERSHIP}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)} \PY{p}{)}\PY{p}{,}
+             \PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{ohe}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{OneHotEncoder}\PY{p}{(}\PY{n}{categories}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{auto}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{sparse}\PY{o}{=}\PY{k+kc}{False}\PY{p}{)} \PY{p}{)}
+         \PY{p}{]}\PY{p}{)}
+         
+         \PY{n}{cert\PYZus{}onehot} \PY{o}{=} \PY{n}{Pipeline}\PY{p}{(}\PY{p}{[}
+             \PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{cst}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{ColumnSelectTransformer}\PY{p}{(}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{CERTIFICATION}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+             \PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{ohe}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{OneHotEncoder}\PY{p}{(}\PY{n}{categories}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{auto}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{sparse}\PY{o}{=}\PY{k+kc}{False}\PY{p}{)} \PY{p}{)}
+         \PY{p}{]}\PY{p}{)}
+         
+         \PY{n}{categorical\PYZus{}features} \PY{o}{=} \PY{n}{FeatureUnion}\PY{p}{(}\PY{p}{[}
+             \PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{owner}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{owner\PYZus{}onehot}\PY{p}{)}\PY{p}{,}
+             \PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{cert}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{cert\PYZus{}onehot}\PY{p}{)}
+          \PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}28}]:} \PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{(}\PY{n}{cert\PYZus{}onehot}\PY{o}{.}\PY{n}{fit\PYZus{}transform}\PY{p}{(}\PY{n}{data}\PY{p}{)}\PY{p}{,}
+                     \PY{n}{columns}\PY{o}{=}\PY{n}{cert\PYZus{}onehot}\PY{o}{.}\PY{n}{named\PYZus{}steps}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{ohe}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{categories\PYZus{}}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}\PY{o}{.}\PY{n}{head}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{)}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}28}]:}    Medicaid  Medicare  Medicare and Medicaid
+         0       0.0       0.0                    1.0
+         1       0.0       0.0                    1.0
+         2       0.0       0.0                    1.0
+         3       0.0       0.0                    1.0
+         4       0.0       0.0                    1.0
+         5       0.0       0.0                    1.0
+         6       0.0       0.0                    1.0
+         7       0.0       0.0                    1.0
+         8       0.0       0.0                    1.0
+         9       0.0       0.0                    1.0
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}29}]:} \PY{k}{assert} \PY{n}{categorical\PYZus{}features}\PY{o}{.}\PY{n}{fit\PYZus{}transform}\PY{p}{(}\PY{n}{data}\PY{p}{)}\PY{o}{.}\PY{n}{shape}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{==} \PY{n}{data}\PY{o}{.}\PY{n}{shape}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
+         \PY{k}{assert} \PY{n}{categorical\PYZus{}features}\PY{o}{.}\PY{n}{fit\PYZus{}transform}\PY{p}{(}\PY{n}{data}\PY{p}{)}\PY{o}{.}\PY{n}{dtype} \PY{o}{==} \PY{n}{np}\PY{o}{.}\PY{n}{float64}
+         \PY{k}{assert} \PY{o+ow}{not} \PY{n}{np}\PY{o}{.}\PY{n}{isnan}\PY{p}{(}\PY{n}{categorical\PYZus{}features}\PY{o}{.}\PY{n}{fit\PYZus{}transform}\PY{p}{(}\PY{n}{data}\PY{p}{)}\PY{p}{)}\PY{o}{.}\PY{n}{any}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}30}]:} \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{naive\PYZus{}bayes} \PY{k}{import} \PY{n}{MultinomialNB}
+\end{Verbatim}
+
+
+    As in the previous question, create a model using the
+\texttt{categorical\_features}, fit it to the data, and submit its
+\texttt{predict\_proba} method to the grader.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}31}]:} \PY{n}{categorical\PYZus{}features\PYZus{}model} \PY{o}{=} \PY{n}{Pipeline}\PY{p}{(}\PY{p}{[}
+             \PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{categorical}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{categorical\PYZus{}features}\PY{p}{)}\PY{p}{,}
+             \PY{c+c1}{\PYZsh{} add your estimator here}
+             \PY{c+c1}{\PYZsh{}(\PYZsq{}classifier\PYZsq{}, RandomForestClassifier(n\PYZus{}estimators=110, max\PYZus{}depth=12))}
+             \PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{classifier}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{MultinomialNB}\PY{p}{(}\PY{n}{alpha}\PY{o}{=}\PY{l+m+mf}{0.01}\PY{p}{)}\PY{p}{)}
+         \PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}32}]:} \PY{n}{categorical\PYZus{}features\PYZus{}model}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{data}\PY{p}{,} \PY{n}{fine\PYZus{}counts} \PY{o}{\PYZgt{}} \PY{l+m+mi}{0}\PY{p}{)}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}32}]:} Pipeline(memory=None,
+                  steps=[('categorical',
+                          FeatureUnion(n\_jobs=None,
+                                       transformer\_list=[('owner',
+                                                          Pipeline(memory=None,
+                                                                   steps=[('cst',
+                                                                           ColumnSelectTransformer(columns=['OWNERSHIP'])),
+                                                                          ('ohe',
+                                                                           OneHotEncoder(categorical\_features=None,
+                                                                                         categories='auto',
+                                                                                         drop=None,
+                                                                                         dtype=<class 'numpy.float64'>,
+                                                                                         handle\_unknown='error',
+                                                                                         n\_values=None,
+                                                                                         sparse=False))],
+                                                                   verbose=False)){\ldots}
+                                                                           ColumnSelectTransformer(columns=['CERTIFICATION'])),
+                                                                          ('ohe',
+                                                                           OneHotEncoder(categorical\_features=None,
+                                                                                         categories='auto',
+                                                                                         drop=None,
+                                                                                         dtype=<class 'numpy.float64'>,
+                                                                                         handle\_unknown='error',
+                                                                                         n\_values=None,
+                                                                                         sparse=False))],
+                                                                   verbose=False))],
+                                       transformer\_weights=None, verbose=False)),
+                         ('classifier',
+                          MultinomialNB(alpha=0.01, class\_prior=None, fit\_prior=True))],
+                  verbose=False)
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}33}]:} \PY{n}{grader}\PY{o}{.}\PY{n}{score}\PY{o}{.}\PY{n}{ml\PYZus{}\PYZus{}categorical\PYZus{}features}\PY{p}{(}\PY{n}{positive\PYZus{}probability}\PY{p}{(}\PY{n}{categorical\PYZus{}features\PYZus{}model}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+==================
+Your score:  0.9747736478437008
+==================
+
+    \end{Verbatim}
+
+    \hypertarget{question-4-business_model}{%
+\subsection{Question 4:
+business\_model}\label{question-4-business_model}}
+
+    Finally, we'll combine \texttt{simple\_features} and
+\texttt{categorical\_features} in a \texttt{FeatureUnion}, followed by
+an estimator in a \texttt{Pipeline}. You may want to optimize the
+hyperparameters of your estimator using cross-validation or try
+engineering new features (e.g.~see
+\href{https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.PolynomialFeatures.html}{PolynomialFeatures}).
+When you've assembled and trained your model, pass the
+\texttt{predict\_proba} method to the grader.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}34}]:} \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{preprocessing} \PY{k}{import} \PY{n}{PolynomialFeatures}
+         \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{linear\PYZus{}model} \PY{k}{import} \PY{n}{LogisticRegression}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}41}]:} \PY{n}{business\PYZus{}features} \PY{o}{=} \PY{n}{FeatureUnion}\PY{p}{(}\PY{p}{[}
+             \PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{simple}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{simple\PYZus{}features}\PY{p}{)}\PY{p}{,}
+             \PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{categorical}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{categorical\PYZus{}features}\PY{p}{)}
+         \PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}42}]:} \PY{n}{business\PYZus{}model} \PY{o}{=} \PY{n}{Pipeline}\PY{p}{(}\PY{p}{[}
+             \PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{features}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{business\PYZus{}features}\PY{p}{)}\PY{p}{,}
+             \PY{c+c1}{\PYZsh{} add your estimator here}
+             \PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{poly}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{PolynomialFeatures}\PY{p}{(}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+             \PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{lr}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{LogisticRegression}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+         \PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}65}]:} \PY{n}{business\PYZus{}model}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{data}\PY{p}{,} \PY{n}{fine\PYZus{}counts} \PY{o}{\PYZgt{}} \PY{l+m+mi}{0}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+/opt/conda/lib/python3.7/site-packages/sklearn/linear\_model/logistic.py:432: FutureWarning: Default solver will be changed to 'lbfgs' in 0.22. Specify a solver to silence this warning.
+  FutureWarning)
+
+    \end{Verbatim}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}65}]:} Pipeline(memory=None,
+                  steps=[('features',
+                          FeatureUnion(n\_jobs=None,
+                                       transformer\_list=[('simple',
+                                                          Pipeline(memory=None,
+                                                                   steps=[('cst',
+                                                                           ColumnSelectTransformer(columns=['BEDCERT',
+                                                                                                            'RESTOT',
+                                                                                                            'INHOSP',
+                                                                                                            'CCRC\_FACIL',
+                                                                                                            'SFF',
+                                                                                                            'CHOW\_LAST\_12MOS',
+                                                                                                            'SPRINKLER\_STATUS',
+                                                                                                            'EXP\_TOTAL',
+                                                                                                            'ADJ\_TOTAL'])),
+                                                                          ('imputer',
+                                                                           SimpleImputer(add\_indicator=False,
+                                                                                         copy=True,
+                                                                                         fill\_value=None,
+                                                                                         missing{\ldots}
+                                       transformer\_weights=None, verbose=False)),
+                         ('poly',
+                          PolynomialFeatures(degree=2, include\_bias=True,
+                                             interaction\_only=False, order='C')),
+                         ('lr',
+                          LogisticRegression(C=1.0, class\_weight=None, dual=False,
+                                             fit\_intercept=True, intercept\_scaling=1,
+                                             l1\_ratio=None, max\_iter=100,
+                                             multi\_class='warn', n\_jobs=None,
+                                             penalty='l2', random\_state=None,
+                                             solver='warn', tol=0.0001, verbose=0,
+                                             warm\_start=False))],
+                  verbose=False)
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}66}]:} \PY{n}{grader}\PY{o}{.}\PY{n}{score}\PY{o}{.}\PY{n}{ml\PYZus{}\PYZus{}business\PYZus{}model}\PY{p}{(}\PY{n}{positive\PYZus{}probability}\PY{p}{(}\PY{n}{business\PYZus{}model}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+==================
+Your score:  0.9914203514059667
+==================
+
+    \end{Verbatim}
+
+    \hypertarget{question-5-survey_results}{%
+\subsection{Question 5:
+survey\_results}\label{question-5-survey_results}}
+
+    Surveys reveal safety and health deficiencies at nursing homes that may
+indicate risk for incidents (and penalties). CMS routinely makes surveys
+of nursing homes. Build a model that combines the
+\texttt{business\_features} of each facility with its cycle 1 survey
+results, as well as the time between the cycle 1 and cycle 2 survey to
+predict the cycle 2 total score.
+
+First, let's create a transformer to calculate the difference in time
+between the cycle 1 and cycle 2 surveys.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}67}]:} \PY{n}{data}\PY{o}{.}\PY{n}{info}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 13892 entries, 0 to 13891
+Data columns (total 29 columns):
+PROVNUM                  13892 non-null object
+PROVNAME                 13892 non-null object
+ADDRESS                  13892 non-null object
+CITY                     13892 non-null object
+STATE                    13892 non-null object
+ZIP                      13892 non-null int64
+PHONE                    13892 non-null int64
+COUNTY\_SSA               13892 non-null int64
+COUNTY\_NAME              13892 non-null object
+BEDCERT                  13892 non-null int64
+RESTOT                   13483 non-null float64
+INHOSP                   13892 non-null bool
+CCRC\_FACIL               13892 non-null bool
+SFF                      13892 non-null bool
+CHOW\_LAST\_12MOS          13892 non-null bool
+SPRINKLER\_STATUS         13892 non-null bool
+EXP\_TOTAL                13104 non-null float64
+ADJ\_TOTAL                13104 non-null float64
+OWNERSHIP                13892 non-null object
+CERTIFICATION            13892 non-null object
+CYCLE\_1\_DEFS             13892 non-null int64
+CYCLE\_1\_NFROMDEFS        13892 non-null int64
+CYCLE\_1\_NFROMCOMP        13892 non-null int64
+CYCLE\_1\_DEFS\_SCORE       13892 non-null int64
+CYCLE\_1\_NUMREVIS         13892 non-null int64
+CYCLE\_1\_REVISIT\_SCORE    13892 non-null int64
+CYCLE\_1\_TOTAL\_SCORE      13892 non-null int64
+CYCLE\_1\_SURVEY\_DATE      13892 non-null object
+CYCLE\_2\_SURVEY\_DATE      13892 non-null object
+dtypes: bool(5), float64(3), int64(11), object(10)
+memory usage: 2.6+ MB
+
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}68}]:} \PY{n}{test\PYZus{}df} \PY{o}{=} \PY{n}{data}\PY{p}{[}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{CYCLE\PYZus{}1\PYZus{}SURVEY\PYZus{}DATE}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{CYCLE\PYZus{}2\PYZus{}SURVEY\PYZus{}DATE}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{]}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}69}]:} \PY{n}{test\PYZus{}df}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{CYCLE\PYZus{}1\PYZus{}SURVEY\PYZus{}DATE}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{to\PYZus{}datetime}\PY{p}{(}\PY{n}{test\PYZus{}df}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{CYCLE\PYZus{}1\PYZus{}SURVEY\PYZus{}DATE}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+         \PY{n}{test\PYZus{}df}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{CYCLE\PYZus{}2\PYZus{}SURVEY\PYZus{}DATE}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{to\PYZus{}datetime}\PY{p}{(}\PY{n}{test\PYZus{}df}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{CYCLE\PYZus{}2\PYZus{}SURVEY\PYZus{}DATE}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+/opt/conda/lib/python3.7/site-packages/ipykernel\_launcher.py:1: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row\_indexer,col\_indexer] = value instead
+
+See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stable/user\_guide/indexing.html\#returning-a-view-versus-a-copy
+  """Entry point for launching an IPython kernel.
+/opt/conda/lib/python3.7/site-packages/ipykernel\_launcher.py:2: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row\_indexer,col\_indexer] = value instead
+
+See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stable/user\_guide/indexing.html\#returning-a-view-versus-a-copy
+  
+
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}70}]:} \PY{n}{test\PYZus{}df}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{delta}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{n}{test\PYZus{}df}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{CYCLE\PYZus{}1\PYZus{}SURVEY\PYZus{}DATE}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{\PYZhy{}} \PY{n}{test\PYZus{}df}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{CYCLE\PYZus{}2\PYZus{}SURVEY\PYZus{}DATE}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+/opt/conda/lib/python3.7/site-packages/ipykernel\_launcher.py:1: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row\_indexer,col\_indexer] = value instead
+
+See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stable/user\_guide/indexing.html\#returning-a-view-versus-a-copy
+  """Entry point for launching an IPython kernel.
+
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}71}]:} \PY{n}{test\PYZus{}df}\PY{o}{.}\PY{n}{delta}\PY{o}{.}\PY{n}{head}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{values}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}71}]:} array([27216000000000000, 35078400000000000, 25488000000000000,
+                33868800000000000, 33264000000000000], dtype='timedelta64[ns]')
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}72}]:} \PY{n}{test\PYZus{}df}\PY{o}{.}\PY{n}{head}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}72}]:}   CYCLE\_1\_SURVEY\_DATE CYCLE\_2\_SURVEY\_DATE    delta
+         0          2017-04-06          2016-05-26 315 days
+         1          2017-03-16          2016-02-04 406 days
+         2          2016-10-20          2015-12-30 295 days
+         3          2017-03-09          2016-02-11 392 days
+         4          2017-06-01          2016-05-12 385 days
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}73}]:} \PY{c+c1}{\PYZsh{}  test\PYZus{}df[\PYZsq{}delta\PYZsq{}] = test\PYZus{}df[\PYZsq{}delta\PYZsq{}].apply(lambda x: x.days)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}74}]:} \PY{k}{class} \PY{n+nc}{TimedeltaTransformer}\PY{p}{(}\PY{n}{BaseEstimator}\PY{p}{,} \PY{n}{TransformerMixin}\PY{p}{)}\PY{p}{:}
+             \PY{k}{def} \PY{n+nf}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{t1\PYZus{}col}\PY{p}{,} \PY{n}{t2\PYZus{}col}\PY{p}{)}\PY{p}{:}
+                 \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{t1\PYZus{}col} \PY{o}{=} \PY{n}{t1\PYZus{}col}
+                 \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{t2\PYZus{}col} \PY{o}{=} \PY{n}{t2\PYZus{}col}
+         
+             \PY{k}{def} \PY{n+nf}{fit}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{X}\PY{p}{,} \PY{n}{y}\PY{o}{=}\PY{k+kc}{None}\PY{p}{)}\PY{p}{:}
+                 \PY{k}{return} \PY{n+nb+bp}{self}
+         
+             \PY{k}{def} \PY{n+nf}{transform}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{X}\PY{p}{)}\PY{p}{:}
+                 \PY{k}{if} \PY{o+ow}{not} \PY{n+nb}{isinstance}\PY{p}{(}\PY{n}{X}\PY{p}{,} \PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{)}\PY{p}{:}
+                     \PY{n}{X} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{(}\PY{n}{X}\PY{p}{)}
+                 \PY{n}{results} \PY{o}{=} \PY{p}{(}\PY{n}{pd}\PY{o}{.}\PY{n}{to\PYZus{}datetime}\PY{p}{(}\PY{n}{X}\PY{p}{[} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{t1\PYZus{}col}\PY{p}{]}\PY{p}{)} \PY{o}{\PYZhy{}} \PY{n}{pd}\PY{o}{.}\PY{n}{to\PYZus{}datetime}\PY{p}{(}\PY{n}{X}\PY{p}{[} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{t2\PYZus{}col}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+                 \PY{n}{results} \PY{o}{=} \PY{n}{results}\PY{o}{.}\PY{n}{apply}\PY{p}{(}\PY{k}{lambda} \PY{n}{x}\PY{p}{:} \PY{n}{x}\PY{o}{.}\PY{n}{days}\PY{p}{)}\PY{o}{.}\PY{n}{values}\PY{o}{.}\PY{n}{reshape}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{)}
+                 \PY{k}{return} \PY{n}{results}\PY{p}{;}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}75}]:} \PY{n}{cycle\PYZus{}1\PYZus{}date} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{CYCLE\PYZus{}1\PYZus{}SURVEY\PYZus{}DATE}\PY{l+s+s1}{\PYZsq{}}
+         \PY{n}{cycle\PYZus{}2\PYZus{}date} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{CYCLE\PYZus{}2\PYZus{}SURVEY\PYZus{}DATE}\PY{l+s+s1}{\PYZsq{}}
+         \PY{n}{time\PYZus{}feature} \PY{o}{=} \PY{n}{TimedeltaTransformer}\PY{p}{(}\PY{n}{cycle\PYZus{}1\PYZus{}date}\PY{p}{,} \PY{n}{cycle\PYZus{}2\PYZus{}date}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}76}]:} \PY{n}{time\PYZus{}feature}\PY{o}{.}\PY{n}{fit\PYZus{}transform}\PY{p}{(}\PY{n}{data}\PY{o}{.}\PY{n}{head}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}76}]:} array([[315],
+                [406],
+                [295],
+                [392],
+                [385]])
+\end{Verbatim}
+            
+    In the cell below we'll collect the cycle 1 survey features.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}77}]:} \PY{n}{cycle\PYZus{}1\PYZus{}cols} \PY{o}{=} \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{CYCLE\PYZus{}1\PYZus{}DEFS}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{CYCLE\PYZus{}1\PYZus{}NFROMDEFS}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{CYCLE\PYZus{}1\PYZus{}NFROMCOMP}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+                         \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{CYCLE\PYZus{}1\PYZus{}DEFS\PYZus{}SCORE}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{CYCLE\PYZus{}1\PYZus{}NUMREVIS}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+                         \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{CYCLE\PYZus{}1\PYZus{}REVISIT\PYZus{}SCORE}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{CYCLE\PYZus{}1\PYZus{}TOTAL\PYZus{}SCORE}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+         \PY{n}{cycle\PYZus{}1\PYZus{}features} \PY{o}{=} \PY{n}{ColumnSelectTransformer}\PY{p}{(}\PY{n}{cycle\PYZus{}1\PYZus{}cols}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}117}]:} \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{ensemble} \PY{k}{import} \PY{n}{RandomForestRegressor}
+          \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{linear\PYZus{}model} \PY{k}{import} \PY{n}{LinearRegression}
+          \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{decomposition} \PY{k}{import} \PY{n}{TruncatedSVD} 
+          \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{linear\PYZus{}model} \PY{k}{import} \PY{n}{Lasso}
+          \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{pipeline} \PY{k}{import} \PY{n}{Pipeline}
+          \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{pipeline} \PY{k}{import} \PY{n}{FeatureUnion}
+          \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{preprocessing} \PY{k}{import} \PY{n}{PolynomialFeatures}
+          \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{model\PYZus{}selection} \PY{k}{import} \PY{n}{GridSearchCV}
+          
+          \PY{n}{gs} \PY{o}{=} \PY{n}{GridSearchCV}\PY{p}{(}\PY{n}{Lasso}\PY{p}{(}\PY{n}{max\PYZus{}iter}\PY{o}{=}\PY{l+m+mi}{1000}\PY{p}{)}\PY{p}{,} 
+                           \PY{n}{param\PYZus{}grid}\PY{o}{=}\PY{p}{\PYZob{}}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{alpha}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:}\PY{n}{np}\PY{o}{.}\PY{n}{arange}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mf}{3.5}\PY{p}{,}\PY{l+m+mf}{0.5}\PY{p}{)}\PY{p}{\PYZcb{}}\PY{p}{,}
+                           \PY{n}{cv}\PY{o}{=}\PY{l+m+mi}{5}\PY{p}{,}
+                           \PY{n}{n\PYZus{}jobs}\PY{o}{=}\PY{l+m+mi}{4}\PY{p}{,}
+                           \PY{n}{verbose}\PY{o}{=}\PY{l+m+mi}{1}
+                           \PY{p}{)}
+          
+          \PY{n}{survey\PYZus{}model} \PY{o}{=} \PY{n}{Pipeline}\PY{p}{(}\PY{p}{[}
+              \PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{features}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{FeatureUnion}\PY{p}{(}\PY{p}{[}
+                  \PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{business}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{business\PYZus{}features}\PY{p}{)}\PY{p}{,}
+                  \PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{survey}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{cycle\PYZus{}1\PYZus{}features}\PY{p}{)}\PY{p}{,}
+                  \PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{time}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{time\PYZus{}feature}\PY{p}{)}
+              \PY{p}{]}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+              \PY{c+c1}{\PYZsh{} add your estimator here}
+              \PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{poly}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{PolynomialFeatures}\PY{p}{(}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+              \PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{decomp}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{TruncatedSVD}\PY{p}{(}\PY{l+m+mi}{40}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+              \PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{gs}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{gs}\PY{p}{)}
+              \PY{c+c1}{\PYZsh{}(\PYZsq{}predictor\PYZsq{}, Lasso(alpha=3, max\PYZus{}iter=1000))}
+          \PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}118}]:} \PY{n}{data}\PY{o}{.}\PY{n}{shape}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}118}]:} (13892, 29)
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}119}]:} \PY{n}{survey\PYZus{}model}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{data}\PY{p}{,} \PY{n}{cycle\PYZus{}2\PYZus{}score}\PY{o}{.}\PY{n}{astype}\PY{p}{(}\PY{n+nb}{int}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Fitting 5 folds for each of 7 candidates, totalling 35 fits
+
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+[Parallel(n\_jobs=4)]: Using backend LokyBackend with 4 concurrent workers.
+[Parallel(n\_jobs=4)]: Done  35 out of  35 | elapsed:    7.4s finished
+
+    \end{Verbatim}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}119}]:} Pipeline(memory=None,
+                   steps=[('features',
+                           FeatureUnion(n\_jobs=None,
+                                        transformer\_list=[('business',
+                                                           FeatureUnion(n\_jobs=None,
+                                                                        transformer\_list=[('simple',
+                                                                                           Pipeline(memory=None,
+                                                                                                    steps=[('cst',
+                                                                                                            ColumnSelectTransformer(columns=['BEDCERT',
+                                                                                                                                             'RESTOT',
+                                                                                                                                             'INHOSP',
+                                                                                                                                             'CCRC\_FACIL',
+                                                                                                                                             'SFF',
+                                                                                                                                             'CHOW\_LAST\_12MOS',
+                                                                                                                                             'SPRINKLER\_STATUS',
+                                                                                                                                             'EXP\_TOTAL',
+                                                                                                                                             'ADJ\_TOTAL'])),
+                                                                                                           ('imputer',
+                                                                                                            SimpleImpute{\ldots}
+                                        estimator=Lasso(alpha=1.0, copy\_X=True,
+                                                        fit\_intercept=True, max\_iter=1000,
+                                                        normalize=False, positive=False,
+                                                        precompute=False,
+                                                        random\_state=None,
+                                                        selection='cyclic', tol=0.0001,
+                                                        warm\_start=False),
+                                        iid='warn', n\_jobs=4,
+                                        param\_grid=\{'alpha': array([0. , 0.5, 1. , 1.5, 2. , 2.5, 3. ])\},
+                                        pre\_dispatch='2*n\_jobs', refit=True,
+                                        return\_train\_score=False, scoring=None,
+                                        verbose=1))],
+                   verbose=False)
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}120}]:} \PY{n}{grader}\PY{o}{.}\PY{n}{score}\PY{o}{.}\PY{n}{ml\PYZus{}\PYZus{}survey\PYZus{}model}\PY{p}{(}\PY{n}{survey\PYZus{}model}\PY{o}{.}\PY{n}{predict}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+==================
+Your score:  1.163796091675108
+==================
+
+    \end{Verbatim}
+
+    \emph{Copyright © 2019 The Data Incubator. All rights reserved.}
+
+
+    % Add a bibliography block to the postdoc
+    
+    
+    
+    \end{document}

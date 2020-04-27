@@ -1,0 +1,4 @@
+1-https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html
+2-https://en.wikipedia.org/wiki/Coefficient_of_determination
+3-https://en.wikipedia.org/wiki/Mean_squared_error
+4-https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html?highlight=linearreg#sklearn.linear_model.LinearRegression

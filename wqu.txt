@@ -1,0 +1,275 @@
+workspace link: https://wqu-ml.tditrain.com/hub/home
+
+
+autres utiles
+
+20/01/2020
+https://scikit-learn.org/stable/modules/generated/sklearn.compose.ColumnTransformer.html
+https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.FeatureUnion.html?highlight=featureunion#sklearn.pipeline.FeatureUnion
+https://scikit-learn.org/stable/modules/generated/sklearn.feature_selection.SelectKBest.html?highlight=selectkbest#sklearn.feature_selection.SelectKBest
+21/01/2020
+https://janakiev.com/blog/gps-points-distance-python/
+https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.PolynomialFeatures.html
+23/01/2020
+https://scikit-learn.org/stable/modules/generated/sklearn.impute.SimpleImputer.html
+https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html?highlight=logistic%20regression#sklearn.linear_model.LogisticRegression
+https://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.MultinomialNB.html
+https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html?highlight=randomforestclassifier#sklearn.ensemble.RandomForestClassifier
+27/01/2020
+https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.get_dummies.html
+https://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.MultinomialNB.html?highlight=multinomialnb#sklearn.naive_bayes.MultinomialNB
+https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.RandomizedSearchCV.html
+https://scikit-learn.org/stable/modules/model_evaluation.html#scoring-parameter
+28/01/2020
+https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.PolynomialFeatures.html
+29/01/2020
+https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.TruncatedSVD.html
+https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Lasso.html
+https://www.drivendata.org/competitions/
+https://datasetsearch.research.google.com/
+04/02/2020
+https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html#sklearn.feature_extraction.text.TfidfVectorizer
+https://machinelearningmastery.com/vector-norms-machine-learning/
+https://www.freetext.org/Introduction_to_Linear_Algebra/Basic_Vector_Operations/Normalization/
+https://en.wikipedia.org/wiki/Norm_(mathematics)#Euclidean_norm
+06/02/2020
+https://scikit-learn.org/stable/modules/computing.html
+https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.SGDRegressor.html#sklearn.linear_model.SGDRegressor
+
+10/02/2020
+https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html
+https://www.drivendata.org/competitions/7/pump-it-up-data-mining-the-water-table/page/23/
+https://www.drivendata.org/competitions/46/box-plots-for-education-reboot/
+https://www.drivendata.org/
+
+03/03/2020
+https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.NMF.html
+https://wqu.org/programs/mscfe
+https://www.oreilly.com/library/view/hands-on-machine-learning/9781492032632/
+https://twitter.com/ncgoodbody
+
+
+wifi
+geekworld
+C4m4r49426
+
+
+
+
+Important Course Policies
+
+    Course Start Date: 13 Jan 2020
+    Last Lecture / Office Hours: 6 Mar 2020
+    Last Day to Submit Assignments: 20 Mar 2020 12:00 UTC
+    Graduation Requirements: In order to pass this course and receive a certificate, you must achieve a score greater than 0 for every question in every miniproject. You can check your grades here.
+    Honors Requirements: In order to pass this course and receive an honors certificate, you must achieve an average score of .9 or greater across every question in every miniproject. You can check your grades here.
+    Deferral Policy: You are allowed to defer to the following session only. There are no exceptions. The deadline is 14 Feb 2020. If you need to defer to the next session you can do so here. You will not need to apply as this will automatically enroll you in the following session.
+
+Onboarding
+
+Thank you for electing to train with WorldQuant and The Data Incubator. Getting logged in here is the important first step. This page provides a central source of information. You can always reach it through the Control Panel button in the top right of every Jupyter server page.
+
+The course is taught through a combination of pre-recorded lecture videos, interactive Jupyter notebooks, and live-streamed office hours. There is a discussion board for additional support. Assignments are provided as interactive Jupyter notebooks connected to an automatic grader. Submitting solutions to the grader in the notebook will update your grades in the gradebook. The highest score you get is the one we save, so don't be afraid to retry problems with other solutions. All of these tools are introduced in this introduction video. We suggest that you follow along with the lecture videos by making notes and experimenting with the code in the notebooks as they are covered in the lectures. You may want to create copies of any notebooks before modifying them so you do not lose the original version.
+
+The buttons above allow you to start, stop, and access your Jupyter server. This server is already provisioned with all of the packages you need for this course, and it allows you to run code directly from your web browser. It can take up to ten minutes for your server to launch. The server will shut itself down if there is no activity for more than 30 minutes.
+
+The tabs below these buttons allow you to see the video schedule, access a shared folder with the videos available for download, see your grades on the miniprojects, and see this information.
+About the Jupyter server
+
+On the Jupyter server page, you can see a listing of all the files in the home directory of your server. All of the material for the training lives within the datacourse/ directory. This contains several directories corresponding with different course modules. Inside the python directory is a miniprojects/ directory, which will have, amongst others, an in.ipynb notebook. Navigate to that directory and open the in.ipynb notebook. Complete this assignment (it should only take a few minutes) and ensure that the grader reports back a score of 1.0.
+Syllabus
+
+The video links tab displays a schedule of lecture videos, giving the pace of the course and an overview of what topics will be covered. While you should defer to the videos for which notebooks are discussed in each lecture, a rough weekly syllabus is as follows. Note that we do not expect you to complete miniprojects in the week that they are assigned! All miniprojects are due by the end of the course.
+
+    Introduction to machine learning and Scikit-learn API
+    Regression, classification, & model selection (miniproject: ml)
+    Feature engineering
+    NLP and dimension reduction (miniproject: nlp)
+    KNeighbors, clustering and ensemble models
+    Support vector machines
+    Time series analysis and anomaly detection
+    Clustering
+
+Discussion Board
+
+This course has a message board for communicating with both the instructors and fellow students located at wqu-ask-ml.tditrain.com
+
+Please use this to chat about problems, course material, or ask questions. Remember, helping your fellow students is a great way to enhance your own understanding of the material.
+About the Data Incubator
+
+The Data Incubator runs a data science fellowship and provides data science training for companies worldwide. Visit our blog, which contains tons of useful resources about the program, including interviews with alumni. For the latest updates to the blog, subscribe to the Twitter feed.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Schedule
+
+Lectures will be distributed every week as a set of 4 hour long videos. The links will be posted here as they are uploaded.
+
+Video links below
+Date 	Event 	Youtube Link
+Sunday 13-Jan--2020 5:09 am 	Introduction to Machine Learning 	https://youtu.be/9J6FNvil6Gw
+Sunday 13-Jan--2020 5:09 am 	1.2.1 Intro to Scikit-learn 	https://youtu.be/ecryKgFv5MA
+Sunday 13-Jan--2020 5:09 am 	1.2.2 Predictors 	https://youtu.be/AHALKrsFdVw
+Sunday 13-Jan--2020 5:09 am 	1.2.3 Transformers and Pipelines 	https://youtu.be/zVU4131QPsw
+Sunday 13-Jan--2020 5:09 am 	1.2.4 Feature Unions 	https://youtu.be/_gOyCmdumps
+Sunday 13-Jan--2020 5:09 am 	1.2.5 Custom Transformers 	https://youtu.be/I0YbI9x51kU
+Sunday 13-Jan--2020 5:09 am 	1.2.6 Custom Predictors 	https://youtu.be/bxf2JHcH4UI
+Sunday 13-Jan--2020 5:09 am 	1.2.7 Exercise Distance Transformer 	https://youtu.be/0zYnOu1axGQ
+Sunday 13-Jan--2020 5:09 am 	1.2.8 Exercise Majority Classifier 	https://youtu.be/SGLjDeJqDb0
+Sunday 13-Jan--2020 5:09 am 	1.3.1 Persisting Your Model 	https://youtu.be/V9Pm_EZvABA
+Sunday 13-Jan--2020 5:09 am 	1.3.2 Common Mistakes 	https://youtu.be/YZQNIUIAi3A
+Sunday 20-Jan--2020 5:09 am 	2.1.1 Regression Metrics 	https://youtu.be/wlMrMvphMuw
+Sunday 20-Jan--2020 5:09 am 	2.2.1 Linear Regression Intro 	https://youtu.be/L1h6cIG8XcA
+Sunday 20-Jan--2020 5:09 am 	2.2.2 Gradient Descent and Huber Loss 	https://youtu.be/j0d4RogPiXM
+Sunday 20-Jan--2020 5:09 am 	2.2.3 Multivariate Regression 	https://youtu.be/9YZbXipwAQg
+Sunday 20-Jan--2020 5:09 am 	2.2.4 Feature Importance 	https://youtu.be/x5XB1ynjCGI
+Sunday 20-Jan--2020 5:09 am 	2.3.1 Classification Metrics 	https://youtu.be/SMmbzWn8yGI
+Sunday 20-Jan--2020 5:09 am 	2.3.2 Probabilistic Models and Metrics 	https://youtu.be/4MgWh8oD-hQ
+Sunday 20-Jan--2020 5:09 am 	2.3.3 Logistic Regression 	https://youtu.be/oqj-0_4WKq4
+Sunday 20-Jan--2020 5:09 am 	2.3.4 Multiclassification 	https://youtu.be/gOVP8c1Cmmg
+Sunday 20-Jan--2020 5:09 am 	2.4.1 Model Selection 	https://youtu.be/lEBStVJXXpM
+Sunday 20-Jan--2020 5:09 am 	2.4.2 Intro to Decision Trees 	https://youtu.be/D6tNPIXCI1o
+Sunday 20-Jan--2020 5:09 am 	2.4.3 Underfitting and Overfitting 	https://youtu.be/ZhhvoUAhA80
+Sunday 20-Jan--2020 5:09 am 	2.4.4 GridSearchCV 	https://youtu.be/cWqE82yQi1Y
+Sunday 20-Jan--2020 5:09 am 	2.4.5 Comparing Two Models 	https://youtu.be/rZ8XGPm-i1o
+Sunday 20-Jan--2020 5:09 am 	2.5.1 Imputation 	https://youtu.be/vJ3WBCW2sas
+Sunday 20-Jan--2020 5:09 am 	2.5.2 Categorical Data 	https://youtu.be/qOAoV8HK8e0
+Sunday 20-Jan--2020 5:09 am 	2.6.1 GridsearchCV and Pipelines 1 	https://youtu.be/c8ZJMXM6vvo
+Sunday 20-Jan--2020 5:09 am 	2.6.2 GridsearchCV and Pipelines 2 	https://youtu.be/mqnG1yANXvo
+Sunday 20-Jan--2020 5:09 am 	2.6.3 RandomizedSearchCV 	https://youtu.be/BXzf0gJuV4w
+Sunday 27-Jan--2020 5:09 am 	3.1.1 Feature Engineering and Extraction 	https://youtu.be/kHDRaKe2B5A
+Sunday 27-Jan--2020 5:09 am 	3.1.2 Feature Transformation 	https://youtu.be/YAJsJNS3DAA
+Sunday 27-Jan--2020 5:09 am 	3.1.3 Curse of Dimensionality 	https://youtu.be/HvG45qVJM84
+Sunday 27-Jan--2020 5:09 am 	3.1.4 Regularization 	https://youtu.be/ArJqhJ415d4
+Sunday 27-Jan--2020 5:09 am 	3.1.5 Multicollinearity and PCA 	https://youtu.be/8eBKta-D334
+Sunday 27-Jan--2020 5:09 am 	3.1.6 Ensemble Models 	https://youtu.be/oUOi5T1b_iU
+Sunday 27-Jan--2020 5:09 am 	3.2.1 Bias and Variance 	https://youtu.be/-ZLg6Zp9HHg
+Sunday 27-Jan--2020 5:09 am 	3.2.2 Learning Curves 	https://youtu.be/KB4fPj68Rbo
+Sunday 27-Jan--2020 5:09 am 	3.3.1 Intro KNN 	https://youtu.be/EV6xlHdTaEY
+Sunday 27-Jan--2020 5:09 am 	3.3.2 KNN Bias and Variance 	https://youtu.be/AXbhiyWJZdw
+Sunday 27-Jan--2020 5:09 am 	3.3.3 KNN Time Complexity 	https://youtu.be/XleyueB7jXU
+Sunday 27-Jan--2020 5:09 am 	3.3.4 KD Trees and Weights 	https://youtu.be/UV1WeqUFPE8
+Sunday 27-Jan--2020 5:09 am 	3.4.1 Intro to NLP 	https://youtu.be/w3HtykbMcqk
+Sunday 27-Jan--2020 5:09 am 	3.4.2 Spacy 	https://youtu.be/7nojkNN0EME
+Sunday 27-Jan--2020 5:09 am 	3.4.3 Obtaining a Corpus 	https://youtu.be/4mYBqqbW408
+Sunday 27-Jan--2020 5:09 am 	3.4.4 Bag of Words Model 	https://youtu.be/7bKNknkmIJI
+Sunday 27-Jan--2020 5:09 am 	3.4.5 Hashing Vectorizer 	https://youtu.be/_wPHgQhiMVY
+Sunday 27-Jan--2020 5:09 am 	3.4.6 TF-IDF 	https://youtu.be/kv9cE-uOnis
+Sunday 27-Jan--2020 5:09 am 	3.4.7 Improving Signal 	https://youtu.be/UR4JcVOBiAI
+Sunday 27-Jan--2020 5:09 am 	3.4.8 N-grams and Similarity 	https://youtu.be/tuwCNPEFRDs
+Sunday 27-Jan--2020 5:09 am 	3.4.9 Word Usage Classifier 	https://youtu.be/FNU4dNeKrHo
+Sunday 27-Jan--2020 5:09 am 	3.4.10 Exercise I 	https://youtu.be/kAZuP3efPbg
+Sunday 27-Jan--2020 5:09 am 	3.4.11 Exercise II 	https://youtu.be/MkpFJkSrC2o
+Sunday 27-Jan--2020 5:09 am 	3.4.12 Exercise III and IV 	https://youtu.be/Uw1_iZgihC0
+Sunday 3-Feb--2020 5:09 am 	4.1.1 Intro to Decision Trees 	https://youtu.be/4cIr8W9tXD8
+Sunday 3-Feb--2020 5:09 am 	4.1.2 Tree Error Metrics 	https://youtu.be/Pv8bnN3E4xA
+Sunday 3-Feb--2020 5:09 am 	4.1.3 Trees for Regression 	https://youtu.be/LvUazyMSRFM
+Sunday 3-Feb--2020 5:09 am 	4.1.4 Training Trees and Hyperparameters 	https://youtu.be/nC-pHG_hgdY
+Sunday 3-Feb--2020 5:09 am 	4.1.5 Geometric Interpretation and Time Complexity 	https://youtu.be/l23BnV-4Xwc
+Sunday 3-Feb--2020 5:09 am 	4.1.6 Time Complexity Continued 	https://youtu.be/oD_INvReM_I
+Sunday 3-Feb--2020 5:09 am 	4.1.7 Random Forests 	https://youtu.be/JUzss0-pvz8
+Sunday 3-Feb--2020 5:09 am 	4.1.8 Extreme Random Forests 	https://youtu.be/GLjopN8Lw94
+Sunday 3-Feb--2020 5:09 am 	4.1.9 Gradient Boosting Trees I 	https://youtu.be/KJtV7fTrFH4
+Sunday 3-Feb--2020 5:09 am 	4.1.10 Gradient Boosting Trees II 	https://youtu.be/E2R4D2Gc4x4
+Sunday 3-Feb--2020 5:09 am 	4.1.11 Feature Importance 	https://youtu.be/WDLvgw-Znmg
+Sunday 3-Feb--2020 5:09 am 	4.1.12 Exercises 	https://youtu.be/7q3pk2VcDFQ
+Sunday 10-Feb--2020 5:09 am 	5.1.1 Intro to SVM 	https://youtu.be/GxSSq1B-BHg
+Sunday 10-Feb--2020 5:09 am 	5.1.2 Largest Margin Classifier 	https://youtu.be/EK-69gK8y9E
+Sunday 10-Feb--2020 5:09 am 	5.1.3 Soft Margin Classifier 	https://youtu.be/QT-Flust1Hc
+Sunday 10-Feb--2020 5:09 am 	5.1.4 SVM Kernels 	https://youtu.be/VQWkkPV1Q_Q
+Sunday 10-Feb--2020 5:09 am 	5.1.5 SVM vs Logistic Regression 	https://youtu.be/4G7uEZCAr2U
+Sunday 10-Feb--2020 5:09 am 	5.1.6 SVM Regression 	https://youtu.be/xp8TJgzgWp0
+Sunday 10-Feb--2020 5:09 am 	5.1.7 SVM Lagrangian Dual 	https://youtu.be/defq3yJ8cyw
+Sunday 10-Feb--2020 5:09 am 	5.1.8 Kernel Trick 	https://youtu.be/YcRcxm4LSqg
+Sunday 10-Feb--2020 5:09 am 	5.1.9 SVM Time Complexity and Multiclass 	https://youtu.be/FR5D4A3Nn0c
+Sunday 10-Feb--2020 5:09 am 	5.1.10 SVM Tuning Kernels Exercise Part I 	https://youtu.be/MggSYvtMcLQ
+Sunday 10-Feb--2020 5:09 am 	5.1.11 SVM Tuning Kernels Exercise Part II 	https://youtu.be/tvWb6XObsFg
+Sunday 10-Feb--2020 5:09 am 	5.1.12 SVM Kernel Approximations 	https://youtu.be/A3HPwA0IWIM
+Sunday 10-Feb--2020 5:09 am 	5.1.13 SVM Online Learning 	https://youtu.be/bgzt8UL8x4Y
+Sunday 10-Feb--2020 5:09 am 	5.1.14 SVM Online Learning Pipeline 	https://youtu.be/E1RoFHjJRDc
+Sunday 10-Feb--2020 5:09 am 	5.2.1 Intro to Clustering 	https://youtu.be/HktZtB7Te0c
+Sunday 10-Feb--2020 5:09 am 	5.2.2 Metrics for Clustering 	https://youtu.be/kWsylUt8LxA
+Sunday 10-Feb--2020 5:09 am 	5.2.3 KMeans Clustering 	https://youtu.be/_OKUAiC9FLY
+Sunday 10-Feb--2020 5:09 am 	5.2.4 Elbow Plots 	https://youtu.be/J_jH7cXGUSQ
+Sunday 10-Feb--2020 5:09 am 	5.2.5 Gaussian Mixture Models 	https://youtu.be/WwDiKfHW52U
+Sunday 10-Feb--2020 5:09 am 	5.2.6 Choosing Cluster Based on Silhouette 	https://youtu.be/Gj4HHh4dDEk
+Sunday 10-Feb--2020 5:09 am 	5.2.7 GMM Choosing Number of Components 	https://youtu.be/QO3F4lBs4m4
+Sunday 17-Feb--2020 5:09 am 	6.1.1 Intro to Time Series 	https://youtu.be/BvDcWoLnWFk
+Sunday 17-Feb--2020 5:09 am 	6.1.2 Crossvalidation in Time Series 	https://youtu.be/ZOJAof-3YYA
+Sunday 17-Feb--2020 5:09 am 	6.1.3 Stationary Signal 	https://youtu.be/WytJdsQBeos
+Sunday 17-Feb--2020 5:09 am 	6.1.4 Modeling Drift 	https://youtu.be/53FLb9usJBk
+Sunday 17-Feb--2020 5:09 am 	6.1.5 Fourier Transforms Part I 	https://youtu.be/k-cF7LB7p4w
+Sunday 17-Feb--2020 5:09 am 	6.1.6 Fourier Transforms Part II 	https://youtu.be/7KSdhV2elq8
+Sunday 17-Feb--2020 5:09 am 	6.1.7 Fourier Components in our Model 	https://youtu.be/ek3vt4xLL-k
+Sunday 17-Feb--2020 5:09 am 	6.1.8 Modeling Noise 	https://youtu.be/IBBcCxCPv1w
+Sunday 17-Feb--2020 5:09 am 	6.1.9 Moving Statistics 	https://youtu.be/8LUt3PBcCFk
+Sunday 17-Feb--2020 5:09 am 	6.1.10 Full Model 	https://youtu.be/oIIE1Fh8eNc
+Sunday 17-Feb--2020 5:09 am 	6.1.11 ARMA and ARIMA 	https://youtu.be/UPox0nn4IvE
+Sunday 17-Feb--2020 5:09 am 	6.1.12 AR Example 	https://youtu.be/GaQ70ZHo69s
+Sunday 17-Feb--2020 5:09 am 	6.2.1 Intro to Dimension Reduction 	https://youtu.be/b5BihaS90q0
+Sunday 17-Feb--2020 5:09 am 	6.2.2 Math of Projections 	https://youtu.be/CZjSrCpkxxk
+Sunday 17-Feb--2020 5:09 am 	6.2.3 PCA 	https://youtu.be/dCYH6MVyfSA
+Sunday 17-Feb--2020 5:09 am 	6.2.4 PCA in Scikit Learn 	https://youtu.be/lSxcJbaRvkA
+Sunday 17-Feb--2020 5:09 am 	6.2.5 PCA Implementation Details 	https://youtu.be/QQl4h1gyCwc
+Sunday 17-Feb--2020 5:09 am 	6.2.6 Choosing the Number of Components 	https://youtu.be/4azFI2QzyXU
+Sunday 17-Feb--2020 5:09 am 	6.2.7 Truncated SVD 	https://youtu.be/nfwInvCoym0
+Sunday 17-Feb--2020 5:09 am 	6.2.8 NMF 	https://youtu.be/ELLDyWiiSXU
+Sunday 17-Feb--2020 5:09 am 	6.2.9 Using PCA with Supervised ML 	https://youtu.be/u8tUlG28CH0
+Sunday 17-Feb--2020 5:09 am 	6.2.10 PCA for Visualization 	https://youtu.be/MRwKUI5ulio
+Sunday 17-Feb--2020 5:09 am 	6.2.11 NMF Exercise Part I 	https://youtu.be/oo1sDDHE-DM
+Sunday 17-Feb--2020 5:09 am 	6.2.12 NMF Exercise Part II 	https://youtu.be/PQt9XPS_bT0
+Sunday 17-Feb--2020 5:09 am 	6.2.13 Variants of PCA 	https://youtu.be/0KdHFPXsonE
+Sunday 24-Feb--2020 5:09 am 	7.1.1 Intro to Anomaly Detection 	https://youtu.be/KuFUQ7wWhsY
+Sunday 24-Feb--2020 5:09 am 	7.1.2 One class SVM 	https://youtu.be/2l0TD7gCzvQ
+Sunday 24-Feb--2020 5:09 am 	7.1.3 Isolation Forest 	https://youtu.be/xIAwOj_xh9s
+Sunday 24-Feb--2020 5:09 am 	7.1.4 Comparison Between One-class SVM and Isolation Forest 	https://youtu.be/VIyK4gLB2hg
+Sunday 24-Feb--2020 5:09 am 	7.1.5 Intro to Case Study 	https://youtu.be/TQk9uSFMo6w
+Sunday 24-Feb--2020 5:09 am 	7.1.6 Initial Baseline Model Part I 	https://youtu.be/qrJTbKyv1eA
+Sunday 24-Feb--2020 5:09 am 	7.1.7 Initial Baseline model Part II 	https://youtu.be/HMRoWtI6eMo
+Sunday 24-Feb--2020 5:09 am 	7.1.8 Full Baseline Model 	https://youtu.be/gTyO2ldQfWc
+Sunday 24-Feb--2020 5:09 am 	7.1.9 Z-score Detection 	https://youtu.be/d2YIby-isCE
+Sunday 24-Feb--2020 5:09 am 	7.1.10 Rolling Z-score Detection 	https://youtu.be/cQ2YIZmeQKg
+Sunday 24-Feb--2020 5:09 am 	7.1.11 Using External Features Initial Model 	https://youtu.be/_SvveHx_Nfk
+Sunday 24-Feb--2020 5:09 am 	7.1.12 Using External Features Tuning the Model 	https://youtu.be/2Z5SQsx4LFE
+Sunday 24-Feb--2020 5:09 am 	7.1.13 Packaging the Time Series Anomaly Detector 	https://youtu.be/hTWHZTTbmJk
+Sunday 2-Mar--2020 5:09 am 	8.1.1 Model Considerations 	https://youtu.be/SFFFnqugdOQ
+Sunday 2-Mar--2020 5:09 am 	8.1.2 Model Development 	https://youtu.be/DrClE-USVDg
+Sunday 2-Mar--2020 5:09 am 	8.1.3 Flask App Local Development 	https://youtu.be/chRA6Lngw-A
+Sunday 2-Mar--2020 5:09 am 	8.1.4 GET requests 	https://youtu.be/v1yYLbB_uUE
+Sunday 2-Mar--2020 5:09 am 	8.1.5 Making GET Requests with Model 	https://youtu.be/q9DgF7mJbrc
+Sunday 2-Mar--2020 5:09 am 	8.1.6 Using our Model with Twitter Web API 	https://youtu.be/AFwGAeBDeEk
+Sunday 2-Mar--2020 5:09 am 	8.1.7 POST Requests and Flask Templates 	https://youtu.be/qbi3aT0KEsA
+Sunday 2-Mar--2020 5:09 am 	8.1.8 Preparing for Deployment to the Web 	https://youtu.be/zqbIVwnA0go
+Sunday 2-Mar--2020 5:09 am 	8.1.9 Deploying our App to the Web with Heroku 	https://youtu.be/ALlhG0pjx1w
+Sunday 2-Mar--2020 5:09 am 	8.2.1 Rethinking Model Tuning 	https://youtu.be/TPcytvHTQoA
+Sunday 2-Mar--2020 5:09 am 	8.2.2 Intro to Bayes Theorem 	https://youtu.be/bzsLD59kF2g
+Sunday 2-Mar--2020 5:09 am 	8.2.3 Bayesian Inference 	https://youtu.be/i6EyxNl_mdk
+Sunday 2-Mar--2020 5:09 am 	8.2.4 Bayesian Optimization 	https://youtu.be/GIQL38tkyRs
+Sunday 2-Mar--2020 5:09 am 	8.3.1 End of Course Material 	https://youtu.be/htdGrsIMZkg
+Sunday 2-Mar--2020 9:39 pm 	Office Hour 29 	https://www.youtube.com/channel/UCW5qH1I2RMA0CnJ0uo7OTvQ/live
+Monday 3-Mar--2020 5:39 pm 	Office Hour 30 	https://www.youtube.com/channel/UCW5qH1I2RMA0CnJ0uo7OTvQ/live
+Tuesday 4-Mar--2020 9:39 pm 	Office Hour 31 	https://www.youtube.com/channel/UCW5qH1I2RMA0CnJ0uo7OTvQ/live
+Wednesday 5-Mar--2020 5:39 pm 	Office Hour 32 	https://www.youtube.com/channel/UCW5qH1I2RMA0CnJ0uo7OTvQ/live
+Thursday 6-Mar--2020 5:09 am 	OFFICE HOURS PLAYLIST 	https://www.youtube.com/playlist?list=PLeDYvCW3J3jkRcrP72oiL-xxWmapMUnl8
